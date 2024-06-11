@@ -1,0 +1,19 @@
+.header {
+  background: rgb(3, 18, 97);
+  background: -moz-linear-gradient(
+    146deg,
+    rgba(3, 18, 97, 1) 0%,
+    rgba(129, 70, 252, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    146deg,
+    rgba(3, 18, 97, 1) 0%,
+    rgba(129, 70, 252, 1) 100%
+  );
+  background: linear-gradient(
+    146deg,
+    rgba(3, 18, 97, 1) 0%,
+    rgba(129, 70, 252, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#031261",endColorstr="#8146fc",GradientType=1);
+}
