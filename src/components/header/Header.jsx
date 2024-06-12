@@ -5,8 +5,9 @@ function Header() {
     <div className="header">
       <div className="header__container">
         <div className="header__container-title">
-          <h1>BookTrackr</h1>
-          <p className="lead__text">Your Reading Journey, One Book at a Time</p>
+          <p className="leading__text">
+            Your Reading Journey, One Book at a Time
+          </p>
         </div>
       </div>
     </div>

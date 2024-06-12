@@ -1,26 +1,60 @@
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
+import { RiCloseFill, RiMenu2Fill } from "react-icons/ri";
+import { useState } from "react";
+
+const Menu = () => {
+  return (
+    <ul>
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/add-book"}>Add Book</NavLink>
+      </li>
+      <li>
+        <NavLink to={"all-books"}>All Books</NavLink>
+      </li>
+    </ul>
+  );
+};
+
 function Navbar() {
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className="navbar">
       <div className="navbar__container">
         <div className="navbar__container-logo">
           <img src={logo} alt="booktracker logo" />
         </div>
-        <div className="navbar__container-navlinks">
-          <ul>
-            <li>
-              <NavLink to={"/"}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/add-book"}>Add Book</NavLink>
-            </li>
-            <li>
-              <NavLink to={"all-books"}>All Books</NavLink>
-            </li>
-          </ul>
+        <div className="navbar__container-navlinks">{<Menu />}</div>
+      </div>
+      <div className="navbar__menu">
+        <div className="navbar__menu-icon">
+          {toggleMenu ? (
+            <RiCloseFill
+              onClick={() => {
+                setToggleMenu(false);
+              }}
+              color="#ffff"
+              size={34}
+            />
+          ) : (
+            <RiMenu2Fill
+              onClick={() => {
+                setToggleMenu(true);
+              }}
+              color="#ffff"
+              size={34}
+            />
+          )}
         </div>
+        {toggleMenu && (
+          <div className="navbar__menu-container scale-up-center">
+            {<Menu />}
+          </div>
+        )}
       </div>
     </div>
   );

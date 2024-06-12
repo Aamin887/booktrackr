@@ -3,10 +3,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import { action as homeAction } from "./routes/index/Index.jsx";
 import data from "./hooks/data.js";
 
-import Root from "./routes/root.jsx";
-import { Home, Error } from "./pages/";
+import { Root, Index } from "./routes";
+import { Error } from "./pages/";
 
 const root = createBrowserRouter([
   {
@@ -15,9 +16,18 @@ const root = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
+        index: true,
         loader: data,
-        element: <Home />,
+        action: homeAction,
+        element: <Index />,
+      },
+      {
+        path: "/books",
+        element: (
+          <div>
+            <h1>HOme</h1>
+          </div>
+        ),
       },
     ],
   },
