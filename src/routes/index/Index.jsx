@@ -1,5 +1,7 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { Card } from "../../components";
+import instance from "../../config/axios";
+import "./index.css";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
@@ -8,21 +10,23 @@ export async function action({ request, params }) {
   return null;
 }
 
-function Home() {
-  const { res } = useLoaderData();
+export async function loader() {
+  const res = await instance.get("/");
+  const books = res.data;
+  return books;
+}
 
-  console.log(res);
+function Home() {
+  const { books } = useLoaderData();
+
+  console.log(books);
   return (
     <div className="home">
-      <div className="home__container">
-        {res?.map((book, idx) => {
+      <div className="home__container section__padding">
+        {books?.map((book, idx) => {
           return <Card key={idx} book={book} />;
         })}
       </div>
-      <Form method="POST">
-        <input type="text" name="fName" />
-        <button type="submit">Add</button>
-      </Form>
     </div>
   );
 }

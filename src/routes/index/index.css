@@ -1,0 +1,11 @@
+.home__container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 760px) {
+  .home__container {
+    flex-direction: row;
+    gap: 0.5em;
+  }
+}

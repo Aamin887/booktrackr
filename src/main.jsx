@@ -6,8 +6,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { action as homeAction } from "./routes/index/Index.jsx";
 import data from "./hooks/data.js";
 
-import { Root, Index } from "./routes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { Root, Index, Add } from "./routes";
 import { Error } from "./pages/";
+
+// loaders and acctions
+import { loader as indexLoader } from "./routes/index/Index.jsx";
+
+import { loader as addLoader, action as addAction } from "./routes/add/Add.jsx";
 
 const root = createBrowserRouter([
   {
@@ -17,17 +25,15 @@ const root = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: data,
+        loader: indexLoader,
         action: homeAction,
         element: <Index />,
       },
       {
-        path: "/books",
-        element: (
-          <div>
-            <h1>HOme</h1>
-          </div>
-        ),
+        path: "/add-book",
+        element: <Add />,
+        loader: addLoader,
+        action: addAction,
       },
     ],
   },
@@ -36,6 +42,7 @@ const root = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={root} />
+    <ToastContainer />
   </React.StrictMode>
 );
 
