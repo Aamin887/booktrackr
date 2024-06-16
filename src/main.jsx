@@ -36,13 +36,13 @@ const root = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "/books/add",
+        path: "/add",
         element: <Add />,
         loader: addLoader,
         action: addAction,
       },
       {
-        path: "/books/:bookId",
+        path: "/:bookId",
         element: <Details />,
         loader: detailsLoader,
       },
