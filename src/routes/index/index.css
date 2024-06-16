@@ -3,9 +3,70 @@
   flex-direction: column;
 }
 
+.home__container-header_illustration {
+  background-color: #fac63d;
+  border: none;
+  border-radius: 0.8em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.286);
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
+.home__container-header_illustration-img {
+  flex: 1;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.home__container-header_illustration-img img {
+  width: 80%;
+  object-fit: contain;
+}
+
+.header__container-header_illustration-text {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.header__container-header_illustration-text h1 {
+  font-family: "Sofia con", Sans-serif;
+  font-size: clamp(2rem, 2.5rem + 1.15vw, 2rem);
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+.header__container-header_illustration-text p {
+  font-size: clamp(1.15rem, 1.15rem + 0vw, 1.15rem);
+  font-weight: 200;
+  margin-bottom: 2em;
+  line-height: 1.5em;
+}
+
+.home__container-content_title h3 {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 300;
+  margin-bottom: 1.2em;
+}
+
+.home__container-content_title p {
+  color: rgb(110, 110, 110);
+  margin-bottom: 1em;
+}
+
 @media screen and (min-width: 760px) {
   .home__container {
     flex-direction: row;
+    flex-direction: column;
     gap: 0.5em;
   }
 }

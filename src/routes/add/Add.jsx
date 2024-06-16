@@ -1,7 +1,8 @@
 import { toast } from "react-toastify";
 import instance from "../../config/axios";
 import "./add.css";
-import { Form, useLoaderData } from "react-router-dom";
+
+import { Form, redirect, useLoaderData } from "react-router-dom";
 
 export async function loader() {
   const amin = "amin";
@@ -20,16 +21,18 @@ export async function action({ request, params }) {
   const bookInfo = {
     title: bookData?.title,
     author: bookData?.author,
-    description: bookData?.description,
+    desc: bookData?.description,
     dateOfPublication: bookData?.dateOfPublication,
   };
 
   try {
     const res = await instance.post("", { ...bookInfo });
     console.log(res);
-    return res.data;
+    toast.info("book added");
+    return redirect(`/books/${res.data.book._id}`);
   } catch (error) {
-    throw new Error(error);
+    return toast.error(error.message);
+    // return throw new Error(error);
   }
 }
 
@@ -37,7 +40,19 @@ function Add() {
   const { amin } = useLoaderData;
   return (
     <div className="add">
-      <div className="add__container">
+      <div className="add__container section__padding">
+        <div className="add__container-header">
+          <div className="add__container-header_left">
+            <h2>Fill form to add a book</h2>
+          </div>
+          <div className="add__container-header_right">
+            <p className="leading__text">
+              Simply fill out the details below to add book. Whether it's a
+              recent read or a cherished favorite, adding it to your list helps
+              other readers find a book to read. Happy reading!
+            </p>
+          </div>
+        </div>
         <Form method="POST" className="add__container-form">
           {/* title */}
           <div className="add__container-form_control">
@@ -60,7 +75,9 @@ function Add() {
           </div>
 
           <div className="add__container-form_footer">
-            <button type="submit">Add Book</button>
+            <button type="submit" className="main__btn">
+              Add Book
+            </button>
           </div>
         </Form>
       </div>

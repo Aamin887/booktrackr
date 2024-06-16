@@ -48,6 +48,26 @@ ul {
   font-weight: 100;
 }
 
+.main__btn {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 0.9rem;
+  background-color: var(--color-btn);
+  text-transform: capitalize;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.main__btn:hover {
+  opacity: 0.8;
+}
+
+.icons {
+  font-weight: bolder;
+  margin-right: 0.6em;
+}
+
 .root__page-container_header {
   /* ff 3.6+ */
   background: -moz-linear-gradient(

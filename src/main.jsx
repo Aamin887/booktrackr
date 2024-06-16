@@ -9,11 +9,12 @@ import data from "./hooks/data.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Root, Index, Add } from "./routes";
+import { Root, Index, Add, Details } from "./routes";
 import { Error } from "./pages/";
 
 // loaders and acctions
 import { loader as indexLoader } from "./routes/index/Index.jsx";
+import { loader as detailsLoader } from "./routes/details/Details.jsx";
 
 import { loader as addLoader, action as addAction } from "./routes/add/Add.jsx";
 
@@ -30,10 +31,15 @@ const root = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "/add-book",
+        path: "/books/add",
         element: <Add />,
         loader: addLoader,
         action: addAction,
+      },
+      {
+        path: "/books/:bookId",
+        element: <Details />,
+        loader: detailsLoader,
       },
     ],
   },

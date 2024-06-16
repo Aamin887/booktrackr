@@ -1,7 +1,7 @@
 .card {
   height: auto;
   margin-bottom: 0.9em;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid #fac63d;
   border-radius: 0.5em;
   display: flex;
   justify-content: flex-start;

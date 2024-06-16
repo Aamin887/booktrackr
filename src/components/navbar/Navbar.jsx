@@ -11,10 +11,10 @@ const Menu = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/add-book"}>Add Book</NavLink>
+        <NavLink to={"/books/add"}>Add Book</NavLink>
       </li>
       <li>
-        <NavLink to={"all-books"}>All Books</NavLink>
+        <NavLink to={"books"}>All Books</NavLink>
       </li>
     </ul>
   );
