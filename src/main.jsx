@@ -15,6 +15,7 @@ import { Error } from "./pages/";
 // loaders and acctions
 import { loader as indexLoader } from "./routes/index/Index.jsx";
 import { loader as detailsLoader } from "./routes/details/Details.jsx";
+import { loader as appLoader } from "./App.jsx";
 
 import { loader as addLoader, action as addAction } from "./routes/add/Add.jsx";
 import App from "./App.jsx";
@@ -34,6 +35,7 @@ const root = createBrowserRouter([
       {
         path: "/books",
         element: <App />,
+        loader: appLoader,
       },
       {
         path: "/add",

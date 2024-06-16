@@ -39,15 +39,15 @@ export async function action({ request, params }) {
 function Add() {
   const { amin } = useLoaderData;
   return (
-    <div className="add">
+    <div className="add section__margin">
       <div className="add__container section__padding">
         <div className="add__container-header">
           <div className="add__container-header_left">
             <h2>Fill form to add a book</h2>
           </div>
           <div className="add__container-header_right">
-            <p className="leading__text">
-              Simply fill out the details below to add book. Whether it's a
+            <p className="section__text">
+              Simply fill out the details below to add book. Whether it&apos;s a
               recent read or a cherished favorite, adding it to your list helps
               other readers find a book to read. Happy reading!
             </p>

@@ -2,7 +2,7 @@ import "./details.css";
 import instance from "../../config/axios";
 import cover from "../../assets/cover.jpg";
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import {
   MdCategory,
   MdOutlineDateRange,
@@ -58,8 +58,12 @@ function Details() {
           </p>
         </div>
         <div className="details__container-footer">
-          <button className="main__btn">Add</button>
-          <button className="main__btn">generate</button>
+          <Link to={"/edit"} className="main__btn">
+            Edit
+          </Link>
+          <Link to={"/generate"} className="main__btn">
+            generate
+          </Link>
         </div>
       </div>
     </div>
