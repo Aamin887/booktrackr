@@ -17,6 +17,7 @@ import { loader as indexLoader } from "./routes/index/Index.jsx";
 import { loader as detailsLoader } from "./routes/details/Details.jsx";
 
 import { loader as addLoader, action as addAction } from "./routes/add/Add.jsx";
+import App from "./App.jsx";
 
 const root = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const root = createBrowserRouter([
         loader: indexLoader,
         action: homeAction,
         element: <Index />,
+      },
+      {
+        path: "/books",
+        element: <App />,
       },
       {
         path: "/books/add",
