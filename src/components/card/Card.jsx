@@ -18,7 +18,7 @@ function Card({ book }) {
             eligendi omnis...
           </p>
 
-          <Link className="card__container-text_link" to={"books/" + _id}>
+          <Link className="card__container-text_link" to={"/" + _id}>
             Read more
           </Link>
         </div>
