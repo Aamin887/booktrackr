@@ -1,7 +1,15 @@
+.spinner {
+  min-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .loader {
   width: 50px;
   aspect-ratio: 1;
   display: grid;
+  height: 100%;
 }
 .loader::before,
 .loader::after {

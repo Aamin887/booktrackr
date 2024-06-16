@@ -34,12 +34,25 @@ ul {
   list-style: none;
 }
 
+.section__heading {
+  font-size: clamp(1.25rem, 1.25rem + 1.1vw, 2rem);
+  text-transform: uppercase;
+  line-height: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+.section__text {
+  font-size: clamp(1.2rem, 1.2rem + 0vw, 1.2rem);
+  line-height: 1.5em;
+  font-weight: 100;
+}
+
 .section__padding {
   padding: 2em 3em;
 }
 
 .section__margin {
-  margin: 2em 3em;
+  margin: 2em;
 }
 
 .leading__text {
@@ -53,6 +66,7 @@ ul {
   border: none;
   border-radius: 0.5em;
   font-size: 0.9rem;
+  display: inline-block;
   background-color: var(--color-btn);
   text-transform: capitalize;
   color: var(--color-text);
@@ -137,7 +151,7 @@ ul {
 
 @media screen and (max-width: 480px) {
   .section__margin {
-    margin: 1.2em;
+    margin: 1em;
   }
 
   .section__padding {
@@ -147,7 +161,7 @@ ul {
 
 @media screen and (max-width: 768px) {
   .section__margin {
-    margin: 2em 3em;
+    margin: 1em;
   }
 
   .section__padding {

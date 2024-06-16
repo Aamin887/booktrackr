@@ -1,2 +1,14 @@
+.books__container-header {
+  margin-bottom: 1.4em;
+}
 
+.books__container-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
 
+.books__container-footer button {
+  margin-right: 1em;
+}
