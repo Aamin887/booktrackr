@@ -11,7 +11,7 @@ const Menu = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/books/add"}>Add Book</NavLink>
+        <NavLink to={"/add"}>Add Book</NavLink>
       </li>
       <li>
         <NavLink to={"books"}>All Books</NavLink>
