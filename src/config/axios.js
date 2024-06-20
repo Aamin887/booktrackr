@@ -1,9 +1,13 @@
 import axios from "axios";
 
+// baseURL: "https://book-track-api.vercel.app/books",
+
 const instance = axios.create({
-  baseURL: "https://fav-book-sandy.vercel.app/books",
+  baseURL: "http://localhost:5002/books/",
   timeout: 1000 * 2,
-  headers: { "X-Custom-Header": "foobar" },
+  headers: {
+    "Content-type": "multipart/form-data",
+  },
 });
 
 export default instance;

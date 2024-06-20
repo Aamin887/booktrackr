@@ -25,7 +25,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalBooks = booksData.length;
-  const pageSize = 6;
+  const pageSize = 5;
   const pages = Math.floor(totalBooks / pageSize);
 
   // prev page
@@ -51,7 +51,7 @@ function App() {
   const canGoNext = currentPage < pages;
 
   useEffect(() => {
-    setBooksData(books);
+    setBooksData([...books]);
   }, []);
 
   return (
@@ -60,8 +60,8 @@ function App() {
         <div className="books__container-header">
           <h2 className="section__heading">All books</h2>
           <p className="section__text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reiciendis, modi.
+            Just go through the list of books to find the book that best suit
+            your reading interests.
           </p>
         </div>
         <div className="books__container-content">
