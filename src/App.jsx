@@ -7,7 +7,7 @@ import { Card } from "./components";
 
 export async function loader() {
   try {
-    const res = await instance.get("");
+    const res = await instance.get("/");
     const books = res.data.books;
     return books;
   } catch (error) {

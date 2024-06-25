@@ -1,9 +1,8 @@
 import axios from "axios";
-
-// baseURL: "https://book-track-api.vercel.app/books",
+// baseURL: "http://localhost:5002/books/",
 
 const instance = axios.create({
-  baseURL: "http://localhost:5002/books/",
+  baseURL: "https://book-track-api.vercel.app/books",
   timeout: 1000 * 2,
   headers: {
     "Content-type": "multipart/form-data",

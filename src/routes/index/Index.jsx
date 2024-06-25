@@ -17,7 +17,7 @@ export async function action({ request, params }) {
 }
 
 export async function loader() {
-  const res = await instance.get("");
+  const res = await instance.get("/");
   const books = res.data;
   return books;
 }

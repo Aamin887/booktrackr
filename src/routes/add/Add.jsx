@@ -7,7 +7,6 @@ import { useState } from "react";
 
 export async function loader() {
   const amin = "amin";
-
   return amin;
 }
 
@@ -31,19 +30,16 @@ export async function action({ request, params }) {
   testData.append("coverPath", image);
   testData.append("dateOfPublication", bookData?.dateOfPublication);
 
-  const bookInfo = {
-    title: bookData?.title,
-    author: bookData?.author,
-    desc: bookData?.description,
-    coverPath: image,
-    dateOfPublication: bookData?.dateOfPublication,
-  };
-
-  console.log(bookInfo);
+  // const bookInfo = {
+  //   title: bookData?.title,
+  //   author: bookData?.author,
+  //   desc: bookData?.description,
+  //   coverPath: image,
+  //   dateOfPublication: bookData?.dateOfPublication,
+  // };
 
   try {
-    const res = await instance.post("", { ...bookInfo });
-    console.log(res);
+    const res = await instance.post("/", testData);
     toast.info("book added");
     return redirect(`/${res.data.book._id}`);
   } catch (error) {

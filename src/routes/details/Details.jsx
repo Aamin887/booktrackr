@@ -12,7 +12,7 @@ import {
 export async function loader({ params }) {
   try {
     const { bookId } = params;
-    const res = await instance.get(bookId);
+    const res = await instance.get("/" + bookId);
     console.log(res);
     const book = res.data;
     return book;
