@@ -1,9 +1,6 @@
 import "./feature.css";
-import { MdAccessibility, MdFilter1 } from "react-icons/md";
 
 function Feature({ data }) {
-  // const ICON = data.icon;
-
   return (
     <div className="feature">
       <div className="feature__container">

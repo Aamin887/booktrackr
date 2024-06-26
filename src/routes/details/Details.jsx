@@ -3,6 +3,7 @@ import instance from "../../config/axios";
 import cover from "../../assets/cover.jpg";
 
 import { Link, useLoaderData } from "react-router-dom";
+
 import {
   MdCategory,
   MdOutlineDateRange,
@@ -20,6 +21,7 @@ export async function loader({ params }) {
     console.log(error);
   }
 }
+
 export async function action() {}
 
 function Details() {

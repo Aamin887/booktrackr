@@ -1,4 +1,5 @@
 .spinner {
+  background-color: rebeccapurple;
   min-width: 100%;
   overflow: hidden;
   display: flex;

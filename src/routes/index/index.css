@@ -56,10 +56,51 @@
   margin-bottom: 1em;
 }
 
-@media screen and (min-width: 760px) {
+/* Mobile: 0px - 767px
+Tablet: 768px - 1023px
+Desktop: 1024px */
+
+@media screen and (max-width: 760px) {
   .home__container {
     flex-direction: row;
     flex-direction: column;
     gap: 0.5em;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .home__container-header_illustration-img img {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .home__container-header_illustration {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .header__container-header_illustration-text {
+    flex: 1;
+  }
+
+  .home__container-header_illustration-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home__container-content_howitworks-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6em;
+  }
+
+  .home__container-content_books-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6em;
   }
 }

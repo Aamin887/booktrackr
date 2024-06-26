@@ -27,7 +27,7 @@ export async function action({ request, params }) {
   testData.append("title", bookData?.title);
   testData.append("author", bookData?.author);
   testData.append("desc", bookData?.desc);
-  testData.append("coverPath", image);
+  testData.append("imgfile", image);
   testData.append("dateOfPublication", bookData?.dateOfPublication);
 
   // const bookInfo = {
@@ -90,7 +90,7 @@ function Add() {
           {/* img */}
           <div className="add__container-form_control">
             {coverPreview && (
-              <div className="thumbnail">
+              <div className="add__container-form_thumbnail">
                 <img src={coverPreview} alt="preview book cover" />
               </div>
             )}

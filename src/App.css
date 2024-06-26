@@ -12,3 +12,30 @@
 .books__container-footer button {
   margin-right: 1em;
 }
+
+/* Mobile: 0px - 767px
+Tablet: 768px - 1023px
+Desktop: 1024px */
+
+@media screen and (min-width: 480px) {
+  .books__container-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .books__container-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .books__container-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+  }
+}

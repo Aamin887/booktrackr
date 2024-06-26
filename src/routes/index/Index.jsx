@@ -73,10 +73,15 @@ function Home() {
             </div>
           </div>
 
-          {/* some in collection */}
-          <div className="home__container-content_title section__margin">
+          {/* 
+          some in collection 
+          - render section based on the books in store
+           - if no books dont render
+           - should be random
+          */}
+          <div className="home__container-content_books section__margin">
             <h3 className="section__heading">Some books in the collections</h3>
-            <div className="">
+            <div className="home__container-content_books-content">
               {books.slice(0, 3)?.map((book, idx) => {
                 return <Card key={idx} book={book} />;
               })}

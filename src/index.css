@@ -48,11 +48,11 @@ ul {
 }
 
 .section__padding {
-  padding: 2em 3em;
+  padding: 1.3em;
 }
 
 .section__margin {
-  margin: 2em;
+  margin: 1.6em;
 }
 
 .leading__text {
@@ -149,22 +149,34 @@ ul {
   }
 }
 
+/*
+  Mobile: 0px - 767px
+  Tablet: 768px - 1023px
+  Desktop: 1024px 
+*/
+
 @media screen and (max-width: 480px) {
-  .section__margin {
-    margin: 1em;
+  .section__padding {
+    padding: 1.3em;
   }
 
-  .section__padding {
-    padding: 1em;
+  .section__margin {
+    margin: 1.8em;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .section__margin {
-    margin: 1em;
+@media screen and (min-width: 768px) {
+  .section__padding {
+    padding: 2em 1.5em;
   }
 
-  .section__padding {
-    padding: 2em;
+  .section__margin {
+    margin: 2em 1.5em;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .section__margin {
+    margin: 2rem 5rem;
   }
 }
