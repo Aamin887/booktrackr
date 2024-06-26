@@ -33,7 +33,7 @@ function Details() {
       <div className="details__container section__padding">
         <div className="details__container-header">
           <div className="details__container-header_img">
-            <img src={cover} alt="" />
+            <img src={book?.coverImg || cover} alt="" />
           </div>
           <div className="details__container-header_text">
             <h4>{book?.title}</h4>

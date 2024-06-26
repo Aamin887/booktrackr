@@ -8,7 +8,7 @@ function Card({ book }) {
     <article className="card">
       <div className="card__container">
         <div className="card__container-img">
-          <img src={coverImg} alt="book cover" />
+          <img src={book?.coverImg || coverImg} alt="book cover" />
         </div>
         <div className="card__container-text">
           <h2 className="card__container-text_title">{title}</h2>
