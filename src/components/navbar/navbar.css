@@ -41,6 +41,18 @@
   padding: 0.2em 0.5em;
 }
 
+.navbar__menu-container ul li a,
+.navbar__container-navlinks ul li a {
+  padding: 0.2em;
+}
+
+.navbar__menu-container ul li a.active,
+.navbar__container-navlinks ul li a.active {
+  padding: 0.2em;
+  background-color: #fac63d;
+  border-radius: 0.2em;
+}
+
 .navbar__menu {
   flex: 1;
   display: flex;
