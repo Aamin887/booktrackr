@@ -1,7 +1,13 @@
-import { Outlet } from "react-router-dom";
-import { Header, Navbar } from "../components";
+import { Outlet, useNavigation } from "react-router-dom";
+import { Header, Navbar, Spinner } from "../components";
 
 function Root() {
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
+
   return (
     <div className="root__page">
       <div className="root__page-container ">
@@ -11,7 +17,11 @@ function Root() {
         </div>
       </div>
       <div className="root__page-container_content">
-        <Outlet />
+        {navigation.state === "loading" || navigation.state === "pending" ? (
+          <Spinner />
+        ) : (
+          <Outlet />
+        )}
       </div>
     </div>
   );

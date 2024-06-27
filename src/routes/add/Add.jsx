@@ -26,6 +26,7 @@ export async function action({ request, params }) {
 
   testData.append("title", bookData?.title);
   testData.append("author", bookData?.author);
+  testData.append("genre", bookData?.genre);
   testData.append("desc", bookData?.desc);
   testData.append("imgfile", image);
   testData.append("dateOfPublication", bookData?.dateOfPublication);
@@ -40,7 +41,11 @@ export async function action({ request, params }) {
 
   try {
     const res = await instance.post("/", testData);
-    toast.info("book added");
+
+    if (res.data) {
+      toast.info("book added");
+    }
+
     return redirect(`/${res.data.book._id}`);
   } catch (error) {
     console.log(error);
@@ -85,6 +90,12 @@ function Add() {
           <div className="add__container-form_control">
             <label htmlFor="author">Author</label>
             <input type="text" name="author" />
+          </div>
+
+          {/* genre*/}
+          <div className="add__container-form_control">
+            <label htmlFor="genre">Genre</label>
+            <input type="text" name="genre" />
           </div>
 
           {/* img */}

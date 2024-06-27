@@ -44,11 +44,12 @@ function Details() {
             <div className="sub">
               <p>
                 {" "}
-                <MdCategory className="icons" size={20} /> genre: genre
+                <MdCategory className="icons" size={20} /> genre:{" "}
+                {book?.genre || "not available"}
               </p>
               <p>
                 <MdOutlineDateRange className="icons" size={20} />
-                published: {book?.dateOfPublication || 2002}
+                published: {book?.dateOfPublication || "not avaiable"}
               </p>
             </div>
           </div>

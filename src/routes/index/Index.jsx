@@ -25,8 +25,9 @@ export async function loader() {
 function Home() {
   const { books } = useLoaderData();
   const navigate = useNavigate();
+  let name = "amin";
 
-  if (navigate.state === "loading" || navigate.state === "pending") {
+  if (navigate.state == "loading" || navigate.state === "pending") {
     return (
       <div className="home">
         <div className="home__container section__padding">

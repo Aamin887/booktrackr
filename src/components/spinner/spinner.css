@@ -1,6 +1,12 @@
+.spinner__container {
+  height: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .spinner {
-  background-color: rebeccapurple;
-  min-width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
