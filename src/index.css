@@ -180,3 +180,29 @@ ul {
     margin: 2rem 5rem;
   }
 }
+
+.add__container-form_control-icon {
+  margin-bottom: 1em;
+}
+
+.add__container-form_control-icon p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.add__container-form_control-icon p .icon {
+  display: inline-block;
+  margin-right: 0.5em;
+  color: red;
+  font-size: 1.2rem;
+  line-height: 100%;
+}
+
+.add__container-form_control-icon .offscreen {
+  display: none;
+}
+
+.add__container-form_control-icon .instuction {
+  display: inline-block;
+}

@@ -1,9 +1,10 @@
 import { toast } from "react-toastify";
 import instance from "../../config/axios";
 import "./add.css";
+import { BsFillInfoSquareFill } from "react-icons/bs";
 
 import { Form, redirect } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export async function loader() {
   const amin = "amin";
@@ -54,11 +55,20 @@ export async function action({ request, params }) {
 }
 
 function Add() {
+  const YEAR_REGEX = /^\d{4}$/;
+
   const [coverPreview, setCoverPreview] = useState("");
+
+  const [year, setYear] = useState("");
+  const [validYear, setValidYear] = useState(false);
 
   const handleChange = (e) => {
     setCoverPreview(URL.createObjectURL(e.target.files[0]));
   };
+
+  useEffect(() => {
+    setValidYear(YEAR_REGEX.test(year));
+  }, [year]);
 
   return (
     <div className="add section__margin">
@@ -111,8 +121,23 @@ function Add() {
 
           {/* date */}
           <div className="add__container-form_control">
-            <label htmlFor="dateOfPublication">Date Of Publication</label>
-            <input type="date" name="dateOfPublication" />
+            <label htmlFor="dateOfPublication">Year Of Publication</label>
+            <input
+              type="text"
+              name="dateOfPublication"
+              onChange={(e) => setYear(e.target.value)}
+              value={year}
+            />
+          </div>
+          <div className="add__container-form_control-icon">
+            <p className={year && !validYear ? "instructions" : "offscreen"}>
+              <BsFillInfoSquareFill className="icon" />
+              4 characters .
+              <br />
+              Must all be numbers, E.g 2024.
+              <br />
+              Letters, underscores, hyphens not allowed, E.g 12-2001.
+            </p>
           </div>
 
           {/* desc */}
