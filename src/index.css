@@ -206,3 +206,34 @@ ul {
 .add__container-form_control-icon .instuction {
   display: inline-block;
 }
+
+button:disabled {
+  background-color: gray;
+  color: #d6d5d796;
+}
+
+button:disabled:hover {
+  opacity: 1;
+  cursor: no-drop;
+}
+
+.icon__label {
+  font-size: 0.9rem;
+  margin-right: 0.1em;
+  line-height: 100%;
+  margin-bottom: -0.2em;
+  color: var(--color-btn);
+  display: inline-block;
+}
+
+small.add__container-form_control-icon {
+  font-size: 0.8rem;
+  font-weight: 250;
+  margin-left: 0.3em;
+  line-height: 100%;
+}
+
+.form__control-optional {
+  font-weight: lighter;
+  font-size: 0.7rem;
+}

@@ -104,7 +104,14 @@ function Add() {
 
           {/* genre*/}
           <div className="add__container-form_control">
-            <label htmlFor="genre">Genre</label>
+            <label htmlFor="genre">
+              Genre{" "}
+              <small className="add__container-form_control-icon">
+                <BsFillInfoSquareFill className="icon__label" />
+                <span className="form__control-optional"> (Optional)</span>
+              </small>
+            </label>
+
             <input type="text" name="genre" />
           </div>
 
@@ -115,13 +122,25 @@ function Add() {
                 <img src={coverPreview} alt="preview book cover" />
               </div>
             )}
-            <label htmlFor="author">Add cover photo</label>
+            <label htmlFor="author">
+              Add cover photo{" "}
+              <small className="add__container-form_control-icon">
+                <BsFillInfoSquareFill className="icon__label" />
+                <span className="form__control-optional"> (Optional)</span>
+              </small>
+            </label>
             <input type="file" name="coverImage" onChange={handleChange} />
           </div>
 
           {/* date */}
           <div className="add__container-form_control">
-            <label htmlFor="dateOfPublication">Year Of Publication</label>
+            <label htmlFor="dateOfPublication">
+              Year Of Publication
+              <small className="add__container-form_control-icon">
+                <BsFillInfoSquareFill className="icon__label" />
+                <span className="form__control-optional"> (Optional)</span>
+              </small>
+            </label>
             <input
               type="text"
               name="dateOfPublication"
@@ -143,11 +162,20 @@ function Add() {
           {/* desc */}
           <div className="add__container-form_control">
             <label htmlFor="description">Description</label>
+            <small className="add__container-form_control-icon">
+              <BsFillInfoSquareFill className="icon__label" />
+              Give a one or two sentence description of the fits the book
+              <span className="form__control-optional"> (Optional)</span>
+            </small>
             <textarea id="description" name="description"></textarea>
           </div>
 
           <div className="add__container-form_footer">
-            <button type="submit" className="main__btn">
+            <button
+              disabled={year && !validYear ? true : false}
+              type="submit"
+              className="main__btn"
+            >
               Add Book
             </button>
           </div>
