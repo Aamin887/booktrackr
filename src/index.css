@@ -237,3 +237,7 @@ small.add__container-form_control-icon {
   font-weight: lighter;
   font-size: 0.7rem;
 }
+
+.warning {
+  color: rgb(255, 132, 0);
+}

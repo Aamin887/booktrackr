@@ -3,12 +3,18 @@ import instance from "../../config/axios";
 import "./add.css";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export async function loader() {
-  const amin = "amin";
-  return amin;
+  try {
+    const res = await instance.get("");
+    return {
+      data: res?.data,
+    };
+  } catch (error) {
+    throw Error(error);
+  }
 }
 
 export async function action({ request, params }) {
@@ -55,16 +61,26 @@ export async function action({ request, params }) {
 }
 
 function Add() {
+  // books in db
+  const { data } = useLoaderData();
+
   const YEAR_REGEX = /^\d{4}$/;
 
-  const [coverPreview, setCoverPreview] = useState("");
-
+  // input states
+  const [title, setTitle] = useState("");
+  const [existTitle, setExistTitle] = useState(false);
   const [year, setYear] = useState("");
   const [validYear, setValidYear] = useState(false);
+  const [coverPreview, setCoverPreview] = useState("");
 
-  const handleChange = (e) => {
-    setCoverPreview(URL.createObjectURL(e.target.files[0]));
-  };
+  useEffect(() => {
+    const checkBookInrecord = (title) => {
+      return setExistTitle(
+        data?.books.some((book) => book.title.trim() === title.trim())
+      );
+    };
+    checkBookInrecord(title);
+  }, [title]);
 
   useEffect(() => {
     setValidYear(YEAR_REGEX.test(year));
@@ -93,7 +109,18 @@ function Add() {
           {/* title */}
           <div className="add__container-form_control">
             <label htmlFor="title">Title</label>
-            <input type="text" name="title" />
+            {existTitle && (
+              <small className="add__container-form_control-icon">
+                <BsFillInfoSquareFill className="icon__label warning" />
+                Book already add, check in the books list.
+              </small>
+            )}
+            <input
+              type="text"
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+            />
           </div>
 
           {/* author */}
@@ -129,7 +156,13 @@ function Add() {
                 <span className="form__control-optional"> (Optional)</span>
               </small>
             </label>
-            <input type="file" name="coverImage" onChange={handleChange} />
+            <input
+              type="file"
+              name="coverImage"
+              onChange={(e) => {
+                setCoverPreview(URL.createObjectURL(e.target.files[0]));
+              }}
+            />
           </div>
 
           {/* date */}
