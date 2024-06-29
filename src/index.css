@@ -157,11 +157,11 @@ ul {
 
 @media screen and (max-width: 480px) {
   .section__padding {
-    padding: 1.3em;
+    padding: 0.8em;
   }
 
   .section__margin {
-    margin: 1.8em;
+    margin: 0.5em;
   }
 }
 
