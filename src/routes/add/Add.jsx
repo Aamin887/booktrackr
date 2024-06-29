@@ -205,7 +205,7 @@ function Add() {
 
           <div className="add__container-form_footer">
             <button
-              disabled={year && !validYear ? true : false}
+              disabled={(year && !validYear) || existTitle ? true : false}
               type="submit"
               className="main__btn"
             >
