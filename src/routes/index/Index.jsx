@@ -18,14 +18,22 @@ export async function action({ request, params }) {
 
 export async function loader() {
   const res = await instance.get("/");
-  const books = res.data;
-  return books;
+  const data = res.data;
+
+  // recommendations => selects three books randomly
+  const getBookRecommendation = (books, numberOfRecommendations) => {
+    const shuffled = books.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numberOfRecommendations);
+  };
+  const books = getBookRecommendation(data?.books, 3);
+  return { books };
 }
 
 function Home() {
   const { books } = useLoaderData();
+
+  console.log(books);
   const navigate = useNavigate();
-  let name = "amin";
 
   if (navigate.state == "loading" || navigate.state === "pending") {
     return (
@@ -83,9 +91,13 @@ function Home() {
           <div className="home__container-content_books section__margin">
             <h3 className="section__heading">Some books in the collections</h3>
             <div className="home__container-content_books-content">
-              {books.slice(0, 3)?.map((book, idx) => {
-                return <Card key={idx} book={book} />;
-              })}
+              {books.length == 0 ? (
+                <p className="section__text">No books on records</p>
+              ) : (
+                books.slice(0, 3)?.map((book, idx) => {
+                  return <Card key={idx} book={book} />;
+                })
+              )}
             </div>
           </div>
 
