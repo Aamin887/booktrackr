@@ -1,9 +1,9 @@
-import { useLoaderData } from "react-router-dom";
 import "./App.css";
-
-import { useEffect, useState } from "react";
 import instance from "./config/axios";
-import { Card } from "./components";
+import { Card, Pagination } from "./components";
+
+import { useLoaderData } from "react-router-dom";
+import { useState, useMemo } from "react";
 
 export async function loader() {
   try {
@@ -14,45 +14,20 @@ export async function loader() {
     return error.message;
   }
 }
+
 export async function action() {}
 
 function App() {
   const books = useLoaderData();
 
-  console.log(books);
-
-  const [booksData, setBooksData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 6;
 
-  const totalBooks = booksData.length;
-  const pageSize = 5;
-  const pages = Math.floor(totalBooks / pageSize);
-
-  // prev page
-
-  const goToPrev = () => {
-    const prevPage = Math.max(currentPage - 1, 1);
-    setCurrentPage(prevPage);
-  };
-
-  // next page
-  const goToNext = () => {
-    const nextPage = Math.min(currentPage + 1, pages);
-    setCurrentPage(nextPage);
-    console.log(booksPerPage);
-  };
-
-  const start = pageSize * (currentPage - 1);
-  const end = pageSize * currentPage;
-
-  const booksPerPage = booksData.slice(start, end);
-
-  const canGoPrev = currentPage > 1;
-  const canGoNext = currentPage < pages;
-
-  useEffect(() => {
-    setBooksData([...books]);
-  }, []);
+  const currentBooksData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return books.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, books]);
 
   return (
     <div className="books">
@@ -65,26 +40,17 @@ function App() {
           </p>
         </div>
         <div className="books__container-content">
-          {booksPerPage?.map((book, idx) => {
+          {currentBooksData?.map((book, idx) => {
             return <Card book={book} key={idx} />;
           })}
         </div>
-        <div className="books__container-footer">
-          <button
-            onClick={() => goToPrev()}
-            className="main__btn"
-            // disabled={!canGoPrev}
-          >
-            Previous
-          </button>
-          <button
-            onClick={() => goToNext()}
-            className="main__btn"
-            // disabled={!canGoNext}
-          >
-            next
-          </button>
-        </div>
+
+        <Pagination
+          currentPage={currentPage}
+          totalCount={books.length}
+          pageSize={pageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </div>
     </div>
   );
